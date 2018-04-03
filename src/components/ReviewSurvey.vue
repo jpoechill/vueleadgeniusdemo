@@ -9,21 +9,19 @@
       <div v-if="!questions[0]">
         There are currently no questions in this survey! Would you like to go back and try again?
       </div>
-      <div v-else v-for="question in questions" class="full-width">
+      <div v-else v-for="(question, index) in questions" v-bind:key="index" class="full-width">
         <p>
           {{ question.question }}
         </p>
-        <p>
-          <div class="dropdown">
-            <button class="dropbtn" @click="btnActive = !btnActive">
-              {{ currAnswer }} 
-              <i class="fas fa-angle-down"></i>
-            </button>
-            <div class="dropdown-content" v-bind:class="{ active: btnActive }">
-              <a @click="clickDropdown(answer)" v-for="answer in question.answers.reverse()" href="#">{{ answer }}</a>
-            </div>
-          </div> 
-        </p>
+        <div class="dropdown">
+          <button class="dropbtn" @click="btnActive = !btnActive">
+            {{ currAnswer }}
+            <i class="fas fa-angle-down"></i>
+          </button>
+          <div class="dropdown-content" v-bind:class="{ active: btnActive }">
+            <a @click="clickDropdown(answer)" v-for="(answer, index) in question.answers.reverse()" v-bind:key="index" href="#">{{ answer }}</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="box-border clear-border right">
@@ -50,7 +48,7 @@ export default {
     let questions = JSON.parse(localStorage.getItem('surveyQuestions'))
 
     // initialize answers
-    this.currAnswer = questions[0].answers[questions[0].answers.length-1]
+    this.currAnswer = questions[0].answers[questions[0].answers.length - 1]
     this.questions = questions
   },
   methods: {
@@ -77,7 +75,7 @@ export default {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px; 
+  font-size: 16px;
   border: 1px solid #AAA;
   width: 100%;
   text-align: left;
