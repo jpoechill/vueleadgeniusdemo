@@ -107,8 +107,7 @@ export default {
   min-width: 600px;
   width: 500px;
   float: right;
-  margin-top: -42;
-  margin-left: 41px;
+  margin-left: 42px;
   z-index: 1;
 }
 
