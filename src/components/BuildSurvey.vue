@@ -10,7 +10,7 @@
         <p class="question-prompt">
           What's your question?
         </p>
-        <input v-model="currQuestion" class="ask-question-input" type="text" placeholder="Type question here."> <button class="button-light" @click="saveQuestion" :disabled="currQuestion === ''"> Save Question</button>
+        <input v-model="currQuestion" class="ask-question-input full-width" type="text" placeholder="Type question here."> <button class="button-light" @click="saveQuestion" :disabled="currQuestion === ''"> Save Question</button>
       </div>
       <div v-for="(question, index) in questions" v-bind:key="index">
         <p>
@@ -19,18 +19,16 @@
         <p class="question-prompt question-asked">
           {{ question.question }}
         </p>
-        <div>
-          <div class="answers-container">
-            <p>
-              Answers
-            </p>
-            <p>
-              <input id="answer-input" v-model="currAnswer" placeholder="Type answer here" type="text"><button class="button-light" @click="addAnswer(index)"> Add Another Answer</button>
-            </p>
-            <p v-for="(answer, index) in question.answers" v-bind:key="index">
-              {{ answer }}
-            </p>
-          </div>
+        <div class="answers-container">
+          <p>
+            Answers
+          </p>
+          <p>
+            <input id="answer-input" v-model="currAnswer" placeholder="Type answer here" type="text"><button class="button-light" @click="addAnswer(index)"> Add Another Answer</button>
+          </p>
+          <p v-for="(answer, index) in question.answers" v-bind:key="index">
+            {{ answer }}
+          </p>
         </div>
       </div>
     </div>
@@ -75,7 +73,30 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+@import "../assets/index.scss";
+
+.question-prompt {
+  color: #777;
+  font-weight: bold;
+}
+
+.question-prompt input {
+  width: 100%;
+}
+
+#answer-input {
+  width: 60%;
+}
+
+.answers-container {
+  margin-left: 60px;
+}
+
+.ask-question-input {
+  width: 66%;
+}
+
 .question-asked {
   font-weight: 300;
   width: 100%;

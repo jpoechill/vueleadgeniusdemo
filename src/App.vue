@@ -12,14 +12,14 @@
 </template>
 
 <script>
-// import store from './store'
-
 export default {
   name: 'App'
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "./assets/index.scss";
+
 body, html {
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
@@ -27,7 +27,7 @@ body, html {
 
 header {
   text-align: center;
-  background-color: #0F747F;
+  background-color: $color-green;
   padding: 30px 0px;
 }
 
@@ -41,12 +41,12 @@ main {
 }
 
 a {
-  color: #FFF;
+  color: $color-white;
   text-decoration: none;
 }
 
 .box-border {
-  background-color: #FFF;
+  background-color: $color-white;
   border: 1px solid #CCC;
   width: 800px;
 }
@@ -70,7 +70,7 @@ input[type=text] {
 }
 
 button {
-  background-color: #1799A7;
+  background-color: $color-btn-green;
   border: none;
   color: white;
   padding: 8px 24px;
@@ -84,7 +84,7 @@ button {
 }
 
 .button-light {
-  background-color: #F2F2F2;
+  background-color:$color-btn-light;
   color: #333;
   font-weight: bolder;
   font-size: 10px;
@@ -108,37 +108,12 @@ button {
   margin: 20px;
 }
 
-.question-prompt {
-  color: #777;
-  font-weight: bold;
-}
-
-.question-prompt input {
-  width: 100%;
-}
-
-button {
-  display: inline-block;
-}
-
 .right {
   text-align: right;
 }
 
 .clear-border {
   border: 0px;
-}
-
-#answer-input {
-  width: 60%;
-}
-
-.answers-container {
-  margin-left: 60px;
-}
-
-.ask-question-input {
-  width: 66%;
 }
 
 .full-width {

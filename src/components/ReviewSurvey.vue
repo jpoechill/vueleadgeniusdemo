@@ -64,7 +64,19 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+@import "../assets/index.scss";
+
+.question-prompt {
+  color: #777;
+  font-weight: bold;
+}
+
+/*
+  Dropdown sourced and modified from https://w3schools.com
+  https://www.w3schools.com/howto/howto_js_dropdown.asp
+*/
+
 /* The dropdown container */
 .dropdown {
   float: left;
@@ -91,7 +103,7 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #FFF;
+  background-color: $color-white;
   min-width: 600px;
   width: 500px;
   float: right;
